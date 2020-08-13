@@ -18,7 +18,6 @@ for d in soup.findAll('div', attrs={'class': 's-expand-height s-include-content-
     brandInfo = d.find('h5', attrs={'class': 's-line-clamp-1'})
     productInfo = d.find('span', attrs={'class': 'a-size-base-plus a-color-base a-text-normal'})
     p = d.find('span', attrs={'class': 'a-price'})
-    priceInfo = p.find('span', attrs={'class': 'a-offscreen'})
     ratingInfo = d.find('span', attrs={'class': 'a-icon-alt'})
     imageInfo = d.find('div', attrs={'class': 'a-section aok-relative s-image-tall-aspect'})
     if brandInfo is not None:
@@ -26,8 +25,11 @@ for d in soup.findAll('div', attrs={'class': 's-expand-height s-include-content-
         brand = brand.replace('\n', '')
     if productInfo is not None:
         name = productInfo.text
-    if priceInfo is not None:
-        price = priceInfo.text
+    if p is not None:
+        priceInfo = p.find('span', attrs={'class': 'a-offscreen'})
+        price = "none"
+        if priceInfo is not None:
+            price = priceInfo.text
     if ratingInfo is not None:
         rating = ratingInfo.text
     if imageInfo is not None:
