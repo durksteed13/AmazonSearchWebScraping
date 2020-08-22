@@ -1,4 +1,4 @@
-# AmazaonSearchWebScrapper
+# AmazonSearchWebScrapper
 
 This is a Python script that searches a user input search to Amazon and returns product information in JSON format. 
 
